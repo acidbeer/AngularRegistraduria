@@ -1,0 +1,52 @@
+<div class="container">
+    
+    <div class="row">
+        <div class="col">
+            <b *ngIf="modoCreacion"> CREAR CANDIDATO </b>
+            <b *ngIf="!modoCreacion"> MODIFICAR CANDIDATO </b>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col col-sm-2">Cedula:</div>
+        <div class="col col-lg-4">
+            
+            <input [disabled]="!modoCreacion" [(ngModel)]="infoCandidato.cedula" class="form-control" type="text" placeholder="{{infoCandidato.cedula}}">
+            <p *ngIf="intentoEnvio" style="color:#B23000"> Requerido </p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col col-sm-2">Numero_resolucion:</div>
+        <div class="col col-lg-4">
+            <input [(ngModel)]="infoCandidato.numero_resolucion" class="form-control" type="text" placeholder="{{infoCandidato.numero_resolucion}}">
+            <p *ngIf="intentoEnvio" style="color:#B23000"> Requerido </p>
+        </div>
+        
+    </div>
+    <br>
+    <div class="row">
+        <div class="col col-sm-2">Nombre:</div>
+        <div class="col col-lg-4">
+            <input [(ngModel)]="infoCandidato.nombre" class="form-control" type="text" placeholder="{{infoCandidato.nombre}}">
+            <p *ngIf="intentoEnvio" style="color:#B23000"> Requerido </p>
+        </div>
+        
+    </div>
+    <br>
+    <div class="row">
+        <div class="col col-sm-2">Apellido:</div>
+        <div class="col col-lg-4">
+            <input [(ngModel)]="infoCandidato.apellido" class="form-control" type="text" placeholder="{{infoCandidato.apellido}}">
+            <p *ngIf="intentoEnvio" style="color:#B23000"> Requerido </p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col col-lg-4">
+            <button (click)="crearCandidato()" *ngIf="modoCreacion" type="button" class="btn btn-success">Crear</button>
+            <button (click)="modificarCandidato()" *ngIf="!modoCreacion"  type="button" class="btn btn-warning">Modificar</button>
+        </div>
+    </div>
+
+</div>

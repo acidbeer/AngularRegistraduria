@@ -1,0 +1,43 @@
+<section>
+  <div class="row">
+    <div class="col text-center">
+      <b>ADMINISTRACION MESAS</b>
+    </div>
+  </div>
+</section>
+<br>
+<section>
+  <div class="float-right">
+    <button (click)="crearMesa()" type="button" class="btn btn-success">Crear Mesa</button>
+  </div>
+</section>
+<br><br><br>
+
+
+<table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th *ngFor="let columnaActual of nombreColumnas" scope="col">{{columnaActual}}</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let mesa of listadoMesas">
+           <tr>
+            <td>{{mesa.numero}}</td>
+            <td>{{mesa.cantidad_inscritos}}</td>
+           <td>
+              <button  (click)="modificarMesa(mesa._id)" type="button" class="btn btn-primary">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+              
+              <button (click)="eliminarMesa(mesa._id)"  type="button" class="btn btn-danger">
+                <i class="fas fa-solid fa-trash"></i>
+              </button>
+                
+            </td>
+           </tr> 
+   
+        </ng-container>   
+    </tbody>
+  </table>

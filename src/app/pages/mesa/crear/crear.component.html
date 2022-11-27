@@ -1,0 +1,35 @@
+<div class="container">
+    
+    <div class="row">
+        <div class="col">
+            <b *ngIf="modoCreacion"> CREAR MESA </b>
+            <b *ngIf="!modoCreacion"> MODIFICAR MESA </b>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col col-sm-2">Numero:</div>
+        <div class="col col-lg-4">
+            
+            <input [disabled]="!modoCreacion" [(ngModel)]="infoMesa.numero" class="form-control" type="text" placeholder="{{infoMesa.numero}}">
+            <p *ngIf="intentoEnvio" style="color:#B23000"> Requerido </p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col col-sm-2">cantidad_inscritos</div>
+        <div class="col col-lg-4">
+            <input [(ngModel)]="infoMesa.cantidad_inscritos" class="form-control" type="text" placeholder="{{infoMesa.cantidad_inscritos}}">
+            <p *ngIf="intentoEnvio" style="color:#B23000"> Requerido </p>
+        </div>
+        
+    </div>
+    <br>
+    <div class="row">
+        <div class="col col-lg-4">
+            <button (click)="crearMesa()" *ngIf="modoCreacion" type="button" class="btn btn-success">Crear</button>
+            <button (click)="modificarMesa()" *ngIf="!modoCreacion"  type="button" class="btn btn-warning">Modificar</button>
+        </div>
+    </div>
+
+</div>

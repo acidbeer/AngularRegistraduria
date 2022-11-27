@@ -1,0 +1,35 @@
+<div class="container">
+    
+    <div class="row">
+        <div class="col">
+            <b *ngIf="modoCreacion"> CREAR PARTIDO </b>
+            <b *ngIf="!modoCreacion"> MODIFICAR PARTIDO </b>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col col-sm-2">Nombre:</div>
+        <div class="col col-lg-4">
+            <input [(ngModel)]="infoPartido.nombre" class="form-control" type="text" placeholder="{{infoPartido.nombre}}">
+            <p *ngIf="intentoEnvio" style="color:#B23000"> Requerido </p>
+        </div>
+        
+    </div>
+    <br>
+    <div class="row">
+        <div class="col col-sm-2">Lema:</div>
+        <div class="col col-lg-4">
+            <input [(ngModel)]="infoPartido.lema" class="form-control" type="text" placeholder="{{infoPartido.lema}}">
+            <p *ngIf="intentoEnvio" style="color:#B23000"> Requerido </p>
+        </div>
+        
+    </div>
+    <br>
+    <div class="row">
+        <div class="col col-lg-4">
+            <button (click)="crearPartido()" *ngIf="modoCreacion" type="button" class="btn btn-success">Crear</button>
+            <button (click)="modificarPartidos()" *ngIf="!modoCreacion"  type="button" class="btn btn-warning">Modificar</button>
+        </div>
+    </div>
+
+</div>
